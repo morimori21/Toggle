@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar [ngClass]="bg">
+    <ion-title [ngClass]="classes" [ngStyle]="isWithStyleBind? styleSetA: styleSetB" >
+     {{title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-input [(ngModel)]="title" 
+    labelPlacement="stacked"
+    label="TYPE HERE"
+    name="Lord of Rabbits once said..."
+    #myInput
+    ></ion-input>
+  </ion-list>
+
+  <ion-list>
+
+      <ion-item>
+        <ion-toggle (ionChange)="toggleBold()" >Bold</ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-toggle (ionChange)="toggleItalic()">Italic</ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-toggle (ionChange)="toggleRed()">Green</ion-toggle>
+      </ion-item>
+  
+      <ion-item>
+        <ion-toggle (ionChange)="toggleBG()" >Background</ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-toggle color="success" (ionChange)="toggleStyleBinding()" [checked]="isWithStyleBind">Toggle Style Binding</ion-toggle>
+      </ion-item>
+
+      <ion-button expand="block" color=" dark" size="large" (ionFocus)="popup(myInput.name)" id="present-alert">Send</ion-button>
+
+      <ion-alert trigger="present-alert" header="RESULT is evil" [message]="message"></ion-alert>
+    
+
+  </ion-list>
+</ion-content>
+
+
+
